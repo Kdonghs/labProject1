@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>도서목록</title>
+    <style>
+        th,td{
+            padding-right: 45px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <table th:marginwidth="100">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+                <th>작가</th>
+                <th>가격</th>
+                <th>구입일자</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="books : ${books}">
+                <td th:text="${books.id}"></td>
+                <td th:text="${books.name}"></td>
+                <td th:text="${books.writer}"></td>
+                <td th:text="${books.price}"></td>
+                <td th:text="${books.buydate}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

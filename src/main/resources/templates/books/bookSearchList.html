@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>검색결과</title>
+    <style>
+        th,td{
+            padding-right: 45px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <form action="/books/del" method="post">
+        <table th:marginwidth="100">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+                <th>작가</th>
+                <th>가격</th>
+                <th>구입일자</th>
+                <th>삭제</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="books : ${books}">
+                <td th:text="${books.id}"></td>
+                <td th:text="${books.name}"></td>
+                <td th:text="${books.writer}"></td>
+                <td th:text="${books.price}"></td>
+                <td th:text="${books.buydate}"></td>
+                <td><input type="checkbox" name="del" th:value="${books.id}"/></td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="삭제"/>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
